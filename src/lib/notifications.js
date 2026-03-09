@@ -140,7 +140,7 @@ export async function getNotificationPreferences(userId) {
         .from('user_notification_settings')
         .select('*')
         .eq('user_id', userId)
-        .single();
+        .maybeSingle();
 
     if (error && error.code !== 'PGRST116') throw error;
     return data;

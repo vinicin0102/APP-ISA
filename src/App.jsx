@@ -5,6 +5,7 @@ import Calendar from './components/Calendar.jsx';
 import NoteEditor from './components/NoteEditor.jsx';
 import NotificationSettings from './components/NotificationSettings.jsx';
 import RecurringNotifications from './components/RecurringNotifications.jsx';
+import InstallPrompt from './components/InstallPrompt.jsx';
 import { Bell, CalendarDays, RotateCw, LogOut, Menu, X } from 'lucide-react';
 import './App.css';
 
@@ -189,6 +190,9 @@ function App() {
                     <span>Repetir</span>
                 </button>
             </nav>
+
+            {/* PWA Install Prompt */}
+            <InstallPrompt />
         </div>
     );
 }

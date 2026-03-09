@@ -26,7 +26,7 @@ function NoteEditor({ selectedDate, userId, showToast }) {
             .select('*')
             .eq('user_id', userId)
             .eq('date', dateStr)
-            .single();
+            .maybeSingle();
 
         if (error && error.code !== 'PGRST116') { // PGRST116 is "No rows found"
             showToast('Erro ao carregar anotação', 'error');

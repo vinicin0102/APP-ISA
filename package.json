@@ -19,6 +19,7 @@
     "lucide-react": "^0.577.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "web-push": "^3.6.7",
     "workbox-cacheable-response": "^7.4.0",
     "workbox-core": "^7.4.0",
     "workbox-expiration": "^7.4.0",
