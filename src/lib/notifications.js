@@ -1,7 +1,7 @@
 import { supabase } from './supabase';
 
 // Your VAPID public key - generate at https://vapidkeys.com/
-const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY || 'YOUR_VAPID_PUBLIC_KEY_HERE';
+const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY || 'BJcjkuCT1nKByiQ6azDPpQBCFl1c_-b9W_wu85UnBRdeY3Wo-UM_oegajLtsXFjh7S0bEdUY9MgxpkaJSPB7q08';
 
 /**
  * Convert a base64 string to Uint8Array for applicationServerKey
@@ -208,4 +208,24 @@ export async function toggleRecurringNotification(id, isActive) {
         .eq('id', id);
 
     if (error) throw error;
+}
+
+/**
+ * Test a local generic notification without backend
+ */
+export async function testLocalNotification() {
+    if (!isPushSupported()) return;
+
+    // Check permission first
+    if (Notification.permission === 'granted') {
+        const registration = await navigator.serviceWorker.ready;
+        await registration.showNotification('🎉 Alerta de Teste', {
+            body: 'As notificações estão funcionando perfeitamente no seu aparelho!',
+            icon: '/icons/icon-192x192.png',
+            badge: '/icons/icon-192x192.png',
+            vibrate: [200, 100, 200]
+        });
+    } else {
+        throw new Error('A permissão de notificação não foi concedida.');
+    }
 }

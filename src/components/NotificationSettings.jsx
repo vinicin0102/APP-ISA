@@ -8,7 +8,8 @@ import {
     subscribeToPush,
     unsubscribeFromPush,
     getNotificationPreferences,
-    saveNotificationPreferences
+    saveNotificationPreferences,
+    testLocalNotification
 } from '../lib/notifications';
 import './NotificationSettings.css';
 
@@ -163,6 +164,28 @@ function NotificationSettings({ userId, showToast }) {
                                 </span>
                             </label>
                         </div>
+
+                        {isSubscribed && (
+                            <div className="setting-row mt-4" style={{ paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+                                <div className="setting-info">
+                                    <h4>Testar Alerta</h4>
+                                    <p>Verifique se o seu dispositivo vibra ou mostra notificação</p>
+                                </div>
+                                <button
+                                    className="btn btn-outline btn-sm"
+                                    onClick={async () => {
+                                        try {
+                                            await testLocalNotification();
+                                            showToast('Notificação de teste enviada!', 'success');
+                                        } catch (error) {
+                                            showToast(error.message, 'error');
+                                        }
+                                    }}
+                                >
+                                    Testar
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </div>
 
