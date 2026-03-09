@@ -1,0 +1,159 @@
+/* ===== RECURRING NOTIFICATIONS ===== */
+.recurring-layout {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 0;
+}
+
+.recurring-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.recurring-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.recurring-header p {
+    color: var(--text-tertiary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .recurring-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+.alert-info {
+    background: rgba(108, 92, 231, 0.1);
+    border: 1px solid rgba(108, 92, 231, 0.3);
+    color: var(--accent-secondary);
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+/* List */
+.recurring-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.recurring-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.recurring-card.inactive {
+    opacity: 0.6;
+}
+
+.recurring-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.recurring-card-header h3 {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 4px;
+}
+
+.text-success {
+    color: var(--accent-green) !important;
+}
+
+.text-danger {
+    color: var(--accent-red) !important;
+}
+
+.recurring-content {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.recurring-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-glass);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.text-primary {
+    color: var(--accent-primary);
+}
+
+.meta-days {
+    display: flex;
+    gap: 4px;
+}
+
+.day-badge {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-tertiary);
+}
+
+.day-badge.active {
+    background: var(--accent-glow);
+    color: var(--accent-secondary);
+    border: 1px solid rgba(108, 92, 231, 0.5);
+}
+
+/* Day Picker Form */
+.days-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.day-select-btn {
+    padding: 8px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-glass);
+    color: var(--text-secondary);
+}
+
+.day-select-btn.active {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+}
